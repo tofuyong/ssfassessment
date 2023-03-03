@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Address</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <h1>Shipping Address</h1>
+
+		
+		<form method="POST" action="/checkout" data-th-object="${sf}">
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td>
+						<input type="text" size="30" placeholder="Name" data-th-field="*{cname}">
+					</td>
+					<div data-th-if="${#fields.hasErrors('cname')}">
+						<span data-th-errors="*{cname}" class="error"></span>
+					</div>
+				</tr>
+                
+				<tr>
+					<td>Address:</td>
+					<td>
+						<input type="text" size="30" placeholder="Address" data-th-field="*{address}">
+					</td>
+					<div data-th-if="${#fields.hasErrors('address')}">
+						<span data-th-errors="*{address}" class="error"></span>
+					</div>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td> 
+						<button type="button">Back</button>
+						<button type="submit">Checkout</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		
+    
+</body>
+
+</html>
